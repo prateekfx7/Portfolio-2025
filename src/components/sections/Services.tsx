@@ -1,44 +1,51 @@
 import { Code, Video, Palette, Layers, Smartphone, Zap } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     icon: Code,
     title: "Web Development",
     description: "Clean, responsive, and fast websites that work beautifully on every device.",
-    features: ["React & Next.js", "Tailwind CSS", "SEO Optimized"]
+    features: ["React & Next.js", "Tailwind CSS", "SEO Optimized"],
+    area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",
   },
   {
     icon: Video,
     title: "Video Editing",
     description: "YouTube, reels, shorts, promos, and social media edits that captivate audiences.",
-    features: ["Motion Graphics", "Color Grading", "Sound Design"]
+    features: ["Motion Graphics", "Color Grading", "Sound Design"],
+    area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
   },
   {
     icon: Palette,
     title: "UI / Visual Design",
     description: "Minimal designs focused on clarity, impact, and exceptional user experience.",
-    features: ["Figma Design", "Prototyping", "Design Systems"]
+    features: ["Figma Design", "Prototyping", "Design Systems"],
+    area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/9]",
   },
   {
     icon: Layers,
     title: "Brand Identity",
     description: "Cohesive visual identity that makes your brand memorable and recognizable.",
-    features: ["Logo Design", "Style Guides", "Assets Creation"]
+    features: ["Logo Design", "Style Guides", "Assets Creation"],
+    area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/9/2/13]",
   },
   {
     icon: Smartphone,
     title: "Mobile-First",
     description: "Experiences optimized for mobile users who make up most of today's traffic.",
-    features: ["Responsive", "Touch-Friendly", "Fast Loading"]
+    features: ["Responsive", "Touch-Friendly", "Fast Loading"],
+    area: "md:[grid-area:3/1/4/7] xl:[grid-area:2/9/3/13]",
   },
   {
     icon: Zap,
     title: "Performance",
     description: "Lightning-fast websites and optimized videos for maximum engagement.",
-    features: ["Core Web Vitals", "Optimization", "Analytics"]
+    features: ["Core Web Vitals", "Optimization", "Analytics"],
+    area: "md:[grid-area:3/7/4/13] xl:[grid-area:3/1/4/13]",
   },
 ];
 
@@ -92,44 +99,59 @@ const Services = () => {
           </p>
         </motion.div>
         
-        <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        <motion.ul 
+          className="grid grid-cols-1 md:grid-cols-12 gap-4"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
-              <Card className="group h-full border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-elevated">
-                <CardContent className="p-8">
-                  <motion.div 
-                    className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-500"
-                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
-                  </motion.div>
-                  <h3 className="text-xl font-semibold text-foreground mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature) => (
-                      <span 
-                        key={feature}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-muted text-muted-foreground"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+            <motion.li 
+              key={service.title} 
+              variants={itemVariants}
+              className={cn("min-h-[14rem] list-none", service.area)}
+            >
+              <div className="relative h-full rounded-2xl border border-border/50 p-2 md:rounded-3xl md:p-3">
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                />
+                <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl bg-card p-6 shadow-card md:p-6">
+                  <div className="relative flex flex-1 flex-col justify-between gap-3">
+                    <motion.div 
+                      className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"
+                      whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {service.features.map((feature) => (
+                        <span 
+                          key={feature}
+                          className="px-2.5 py-1 text-xs font-medium rounded-full bg-muted text-muted-foreground"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                </div>
+              </div>
+            </motion.li>
           ))}
-        </motion.div>
+        </motion.ul>
       </div>
     </section>
   );

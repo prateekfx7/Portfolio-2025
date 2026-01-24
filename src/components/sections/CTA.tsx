@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Phone, Sparkles } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const CTA = () => {
   const ref = useRef(null);
@@ -20,77 +22,109 @@ const CTA = () => {
       />
       <div className="container max-w-5xl mx-auto" ref={ref}>
         <motion.div 
-          className="relative bg-card rounded-[2.5rem] p-12 md:p-20 text-center shadow-elevated border border-border/50 overflow-hidden"
-          initial={{ opacity: 0, y: 40 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Animated background orbs */}
-          <motion.div 
-            className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px] -z-10"
-            animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute bottom-0 left-0 w-64 h-64 bg-accent/15 rounded-full blur-[80px] -z-10"
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.4, 0.2]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          
-          <div className="relative z-10">
-            <motion.div 
-              className="w-20 h-20 rounded-3xl bg-primary/10 flex items-center justify-center mx-auto mb-8 border border-primary/20"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={isInView ? { scale: 1, rotate: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.1, rotate: 10 }}
-            >
-              <Mail className="w-10 h-10 text-primary" />
-            </motion.div>
-            
-            <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Have a project
-              <br />
-              <span className="text-primary italic">in mind?</span>
-            </motion.h2>
-            
-            <motion.p 
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              Let's create something impactful together. I'm always excited to collaborate 
-              on new projects and help bring creative visions to life.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button variant="hero" size="lg" className="group" asChild>
-                <a href="tel:+916264638602">
-                  <Sparkles className="mr-2 w-5 h-5" />
-                  Get in Touch
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </Button>
-            </motion.div>
-          </div>
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
+            Get in Touch
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+            Have a project
+            <br />
+            <span className="text-primary italic">in mind?</span>
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Let's create something impactful together. I'm always excited to collaborate 
+            on new projects and help bring creative visions to life.
+          </p>
         </motion.div>
+
+        <HighlightGroup className="group w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <HighlighterItem>
+              <div className="relative z-20 overflow-hidden rounded-3xl bg-card">
+                <Particles
+                  className="absolute inset-0 -z-10 opacity-10 group-hover:opacity-30 transition-opacity duration-1000"
+                  quantity={100}
+                  color="#7c3aed"
+                  staticity={30}
+                />
+                <div className="flex flex-col md:flex-row">
+                  {/* Left side - Info */}
+                  <div className="flex-1 p-8 md:p-12">
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {["Web Development", "Video Editing", "UI/UX Design", "Branding"].map((tag) => (
+                        <span 
+                          key={tag}
+                          className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20">
+                        <img 
+                          src={profilePhoto} 
+                          alt="Prateek" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground">Prateek</h4>
+                        <p className="text-sm text-muted-foreground">Designer & Developer</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+                        Any questions about your project?
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Feel free to reach out to me! I'd love to discuss how we can work together.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right side - Actions */}
+                  <div className="flex-1 p-8 md:p-12 bg-muted/30 flex flex-col justify-center">
+                    <div className="space-y-4">
+                      <Button variant="hero" size="lg" className="w-full group" asChild>
+                        <a href="tel:+916264638602">
+                          <Phone className="mr-2 w-5 h-5" />
+                          Book a Call
+                          <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                        </a>
+                      </Button>
+                      
+                      <div className="flex gap-3">
+                        <Button variant="outline" size="lg" className="flex-1" asChild>
+                          <a href="mailto:prateek@example.com">
+                            <Mail className="mr-2 w-4 h-4" />
+                            Email
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="lg" className="flex-1" asChild>
+                          <a href="https://wa.me/916264638602" target="_blank" rel="noopener noreferrer">
+                            <Sparkles className="mr-2 w-4 h-4" />
+                            WhatsApp
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </HighlighterItem>
+          </motion.div>
+        </HighlightGroup>
       </div>
     </section>
   );
