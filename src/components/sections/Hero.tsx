@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const Hero = () => {
   return (
