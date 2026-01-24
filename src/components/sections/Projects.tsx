@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import projectShakti from "@/assets/project-shakti.png";
+import projectReels from "@/assets/project-reels.png";
 
 const projects = [
   {
     title: "Shakti AI",
     description: "AI-powered platform with modern design and seamless user experience.",
     tag: "Web",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+    image: projectShakti,
     color: "from-violet-500/20 to-indigo-500/20",
     link: "https://shaktiai.vercel.app/"
   },
@@ -17,7 +19,7 @@ const projects = [
     title: "Video Edits & Reels",
     description: "Professional video editing, motion graphics, and social media content.",
     tag: "Video",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop",
+    image: projectReels,
     color: "from-pink-500/20 to-rose-500/20",
     link: "https://www.instagram.com/prateek.fx/"
   },

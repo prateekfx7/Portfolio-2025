@@ -106,15 +106,15 @@ const CTA = () => {
                       
                       <div className="flex gap-3">
                         <Button variant="outline" size="lg" className="flex-1" asChild>
-                          <a href="mailto:prateek@example.com">
+                          <a href="mailto:prateekmaurya862@gmail.com">
                             <Mail className="mr-2 w-4 h-4" />
                             Email
                           </a>
                         </Button>
                         <Button variant="outline" size="lg" className="flex-1" asChild>
-                          <a href="https://wa.me/916264638602" target="_blank" rel="noopener noreferrer">
-                            <Sparkles className="mr-2 w-4 h-4" />
-                            WhatsApp
+                          <a href="tel:+916264638602">
+                            <Phone className="mr-2 w-4 h-4" />
+                            Phone
                           </a>
                         </Button>
                       </div>

@@ -1,11 +1,11 @@
-import { Github, Linkedin, Instagram, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Instagram, Globe, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com/prateekfx7", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/prateekfx/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/prateek.fx", label: "Instagram" },
+  { icon: Globe, href: "https://prateekfx.super.site/", label: "Website" },
 ];
 
 const footerLinks = [
@@ -80,10 +80,10 @@ const Footer = () => {
             <ul className="space-y-3 text-muted-foreground">
               <li>
                 <a 
-                  href="mailto:hello@prateekmaurya.com"
+                  href="mailto:prateekmaurya862@gmail.com"
                   className="hover:text-primary transition-colors duration-300"
                 >
-                  hello@prateekmaurya.com
+                  prateekmaurya862@gmail.com
                 </a>
               </li>
               <li>Based in India 🇮🇳</li>
