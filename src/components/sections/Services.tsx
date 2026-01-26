@@ -1,71 +1,91 @@
-import { Code, Video, Palette, Layers, Smartphone, Zap } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { cn } from "@/lib/utils";
+import { RevealImageList, type ShowImageListItemProps } from "@/components/ui/reveal-images";
 
-const services = [
+const services: ShowImageListItemProps[] = [
   {
-    icon: Code,
-    title: "Web Development",
-    description: "Clean, responsive, and fast websites that work beautifully on every device.",
-    features: ["React & Next.js", "Tailwind CSS", "SEO Optimized"],
-    area: "md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]",
+    text: "Web Development",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=200&auto=format&fit=crop&q=60",
+        alt: "Web Development 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1587440871875-191322ee64b0?w=200&auto=format&fit=crop&q=60",
+        alt: "Web Development 2",
+      },
+    ],
   },
   {
-    icon: Video,
-    title: "Video Editing",
-    description: "YouTube, reels, shorts, promos, and social media edits that captivate audiences.",
-    features: ["Motion Graphics", "Color Grading", "Sound Design"],
-    area: "md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]",
+    text: "Video Editing",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=200&auto=format&fit=crop&q=60",
+        alt: "Video Editing 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=200&auto=format&fit=crop&q=60",
+        alt: "Video Editing 2",
+      },
+    ],
   },
   {
-    icon: Palette,
-    title: "UI / Visual Design",
-    description: "Minimal designs focused on clarity, impact, and exceptional user experience.",
-    features: ["Figma Design", "Prototyping", "Design Systems"],
-    area: "md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/9]",
+    text: "UI / Visual Design",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&auto=format&fit=crop&q=60",
+        alt: "UI Design 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=200&auto=format&fit=crop&q=60",
+        alt: "UI Design 2",
+      },
+    ],
   },
   {
-    icon: Layers,
-    title: "Brand Identity",
-    description: "Cohesive visual identity that makes your brand memorable and recognizable.",
-    features: ["Logo Design", "Style Guides", "Assets Creation"],
-    area: "md:[grid-area:2/7/3/13] xl:[grid-area:1/9/2/13]",
+    text: "Brand Identity",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?w=200&auto=format&fit=crop&q=60",
+        alt: "Brand Identity 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1567262439850-1d4dc1fefdd0?w=200&auto=format&fit=crop&q=60",
+        alt: "Brand Identity 2",
+      },
+    ],
   },
   {
-    icon: Smartphone,
-    title: "Mobile-First",
-    description: "Experiences optimized for mobile users who make up most of today's traffic.",
-    features: ["Responsive", "Touch-Friendly", "Fast Loading"],
-    area: "md:[grid-area:3/1/4/7] xl:[grid-area:2/9/3/13]",
+    text: "Mobile-First",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&auto=format&fit=crop&q=60",
+        alt: "Mobile 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&auto=format&fit=crop&q=60",
+        alt: "Mobile 2",
+      },
+    ],
   },
   {
-    icon: Zap,
-    title: "Performance",
-    description: "Lightning-fast websites and optimized videos for maximum engagement.",
-    features: ["Core Web Vitals", "Optimization", "Analytics"],
-    area: "md:[grid-area:3/7/4/13] xl:[grid-area:3/1/4/13]",
+    text: "Performance",
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&auto=format&fit=crop&q=60",
+        alt: "Performance 1",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&auto=format&fit=crop&q=60",
+        alt: "Performance 2",
+      },
+    ],
   },
 ];
 
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-  };
 
   return (
     <section id="services" className="py-32 px-4 relative overflow-hidden">
@@ -81,7 +101,7 @@ const Services = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-background to-muted/30 -z-10" />
       
-      <div className="container max-w-6xl mx-auto" ref={ref}>
+      <div className="container max-w-4xl mx-auto" ref={ref}>
         <motion.div 
           className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
@@ -99,59 +119,13 @@ const Services = () => {
           </p>
         </motion.div>
         
-        <motion.ul 
-          className="grid grid-cols-1 md:grid-cols-12 gap-4"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          {services.map((service) => (
-            <motion.li 
-              key={service.title} 
-              variants={itemVariants}
-              className={cn("min-h-[14rem] list-none", service.area)}
-            >
-              <div className="relative h-full rounded-2xl border border-border/50 p-2 md:rounded-3xl md:p-3">
-                <GlowingEffect
-                  spread={40}
-                  glow={true}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                />
-                <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl bg-card p-6 shadow-card md:p-6">
-                  <div className="relative flex flex-1 flex-col justify-between gap-3">
-                    <motion.div 
-                      className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"
-                      whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <service.icon className="w-6 h-6 text-primary" />
-                    </motion.div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-semibold text-foreground">
-                        {service.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {service.features.map((feature) => (
-                        <span 
-                          key={feature}
-                          className="px-2.5 py-1 text-xs font-medium rounded-full bg-muted text-muted-foreground"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.li>
-          ))}
-        </motion.ul>
+          <RevealImageList title="Our services" items={services} />
+        </motion.div>
       </div>
     </section>
   );
