@@ -1,48 +1,138 @@
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MessageSquare, Lightbulb, Palette, Rocket } from "lucide-react";
+import { Timeline } from "@/components/ui/timeline";
 
-const steps = [
+const timelineData = [
   {
-    number: "01",
-    icon: MessageSquare,
-    title: "Discovery Call",
-    description: "We discuss your project, goals, and vision. I learn about your brand and what you want to achieve.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+    title: "01 - Discovery Call",
+    content: (
+      <div>
+        <p className="text-foreground text-lg font-medium mb-4">
+          We discuss your project, goals, and vision
+        </p>
+        <p className="text-muted-foreground mb-8">
+          I learn about your brand and what you want to achieve. This is where we align on expectations and understand the scope.
+        </p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <MessageSquare className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-sm text-muted-foreground">Initial consultation</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+            alt="Discovery Call"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop"
+            alt="Planning"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    number: "02",
-    icon: Lightbulb,
-    title: "Strategy & Planning",
-    description: "I create a detailed plan and timeline. You'll know exactly what to expect and when.",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop"
+    title: "02 - Strategy & Planning",
+    content: (
+      <div>
+        <p className="text-foreground text-lg font-medium mb-4">
+          I create a detailed plan and timeline
+        </p>
+        <p className="text-muted-foreground mb-8">
+          You'll know exactly what to expect and when. We map out milestones, deliverables, and keep communication transparent.
+        </p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Lightbulb className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-sm text-muted-foreground">Strategic roadmap</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop"
+            alt="Strategy"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop"
+            alt="Planning"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    number: "03",
-    icon: Palette,
-    title: "Design & Build",
-    description: "The magic happens. I craft your website or edit your video with precision and creativity.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop"
+    title: "03 - Design & Build",
+    content: (
+      <div>
+        <p className="text-foreground text-lg font-medium mb-4">
+          The magic happens
+        </p>
+        <p className="text-muted-foreground mb-8">
+          I craft your website or edit your video with precision and creativity. Regular updates keep you in the loop throughout the process.
+        </p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Palette className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-sm text-muted-foreground">Creative execution</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop"
+            alt="Design"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+            alt="Build"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+        </div>
+      </div>
+    ),
   },
   {
-    number: "04",
-    icon: Rocket,
-    title: "Launch & Support",
-    description: "Your project goes live. I provide support and make sure everything runs smoothly.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    title: "04 - Launch & Support",
+    content: (
+      <div>
+        <p className="text-foreground text-lg font-medium mb-4">
+          Your project goes live
+        </p>
+        <p className="text-muted-foreground mb-8">
+          I provide support and make sure everything runs smoothly. Post-launch assistance ensures your success continues.
+        </p>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+            <Rocket className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-sm text-muted-foreground">Go live & beyond</span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+            alt="Launch"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+            alt="Support"
+            className="rounded-lg object-cover h-32 w-full shadow-card"
+          />
+        </div>
+      </div>
+    ),
   },
 ];
 
 const HowItWorks = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section className="py-32 px-4 relative overflow-hidden bg-muted/30">
@@ -73,68 +163,7 @@ const HowItWorks = () => {
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Progress line */}
-          <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-border hidden md:block">
-            <motion.div 
-              className="w-full bg-primary origin-top"
-              style={{ height: progressHeight }}
-            />
-          </div>
-
-          <div className="space-y-16 md:space-y-24">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                className={`flex flex-col md:flex-row gap-8 md:gap-16 items-center ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {/* Content */}
-                <div className={`flex-1 ${index % 2 === 1 ? "md:text-right" : ""}`}>
-                  <div className={`inline-flex items-center gap-3 mb-4 ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
-                    <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed max-w-md">
-                    {step.description}
-                  </p>
-                </div>
-
-                {/* Center dot */}
-                <motion.div 
-                  className="hidden md:flex w-4 h-4 rounded-full bg-primary border-4 border-background shadow-lg z-10"
-                  whileInView={{ scale: [0, 1.2, 1] }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                />
-
-                {/* Image */}
-                <motion.div 
-                  className="flex-1"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div className="relative rounded-3xl overflow-hidden shadow-card border border-border/50 bg-card">
-                    <img 
-                      src={step.image}
-                      alt={step.title}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        <Timeline data={timelineData} />
       </div>
     </section>
   );
