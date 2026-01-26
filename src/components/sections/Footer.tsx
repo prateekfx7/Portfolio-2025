@@ -1,4 +1,5 @@
 import { StackedCircularFooter } from "@/components/ui/stacked-circular-footer";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const footerLinks = [
   { name: "About", href: "#about" },
@@ -13,6 +14,7 @@ const Footer = () => {
     <StackedCircularFooter
       brandName="Prateek"
       email="prateekmaurya862@gmail.com"
+      profileImage={profilePhoto}
       tagline="Web Developer & Video Editor helping brands create impactful digital experiences."
       socialLinks={{
         github: "https://github.com/prateekfx7",

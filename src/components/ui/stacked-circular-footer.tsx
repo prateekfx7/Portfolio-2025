@@ -7,6 +7,7 @@ import { Github, Instagram, Linkedin, Globe } from "lucide-react"
 interface StackedCircularFooterProps {
   brandName: string;
   email: string;
+  profileImage?: string;
   socialLinks: {
     github?: string;
     linkedin?: string;
@@ -19,7 +20,8 @@ interface StackedCircularFooterProps {
 
 function StackedCircularFooter({ 
   brandName, 
-  email, 
+  email,
+  profileImage,
   socialLinks, 
   navLinks,
   tagline 
@@ -37,9 +39,19 @@ function StackedCircularFooter({
       />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center">
-          <div className="mb-8 rounded-full bg-muted p-8">
-            <a href="#" className="text-2xl font-display font-bold text-foreground">
-              {brandName}<span className="text-primary">.</span>
+          <div className="mb-8 rounded-full bg-muted p-2 overflow-hidden">
+            <a href="#">
+              {profileImage ? (
+                <img 
+                  src={profileImage} 
+                  alt={brandName} 
+                  className="w-24 h-24 rounded-full object-cover"
+                />
+              ) : (
+                <span className="text-2xl font-display font-bold text-foreground p-6 block">
+                  {brandName}<span className="text-primary">.</span>
+                </span>
+              )}
             </a>
           </div>
           {tagline && (
