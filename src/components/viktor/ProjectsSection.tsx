@@ -2,19 +2,22 @@ import { useInViewAnimation } from "@/hooks/useInViewAnimation";
 
 const projects = [
   {
-    name: "evr",
-    desc: "From idea to millions raised for a web3 AI product",
-    img: "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
+    name: "SheShield AI",
+    desc: "AI-powered safety companion designed for women.",
+    url: "https://sheshieldai.vercel.app/",
+    img: "https://api.microlink.io/?url=https%3A%2F%2Fsheshieldai.vercel.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800",
   },
   {
-    name: "Automation Machines",
-    desc: "Streamlining industrial automation processes",
-    img: "https://motionsites.ai/assets/hero-automation-machines-preview-DlTveRIN.gif",
+    name: "Shakti AI",
+    desc: "Intelligent assistant focused on empowerment and productivity.",
+    url: "https://shaktiai.vercel.app/",
+    img: "https://api.microlink.io/?url=https%3A%2F%2Fshaktiai.vercel.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800",
   },
   {
-    name: "xPortfolio",
-    desc: "Modern portfolio management platform",
-    img: "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
+    name: "CityMind AI",
+    desc: "Smart city insights and AI-driven urban intelligence.",
+    url: "https://citymindaii.vercel.app/",
+    img: "https://api.microlink.io/?url=https%3A%2F%2Fcitymindaii.vercel.app&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800",
   },
 ];
 
@@ -28,14 +31,23 @@ function ProjectItem({ p }: { p: (typeof projects)[number] }) {
         </h3>
         <p className="text-sm md:text-base text-[#051A24]/70 mt-2">{p.desc}</p>
       </div>
-      <img src={p.img} alt={p.name} className="w-full rounded-2xl shadow-lg object-cover" />
+      <a href={p.url} target="_blank" rel="noreferrer" className="block">
+        <img
+          src={p.img}
+          alt={p.name}
+          className="w-full rounded-2xl shadow-lg object-cover aspect-[16/10] bg-[#0D212C]/5"
+        />
+      </a>
     </div>
   );
 }
 
 export default function ProjectsSection() {
   return (
-    <section className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col gap-16 md:gap-20">
+    <section
+      id="projects"
+      className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col gap-16 md:gap-20"
+    >
       {projects.map((p) => (
         <ProjectItem key={p.name} p={p} />
       ))}
