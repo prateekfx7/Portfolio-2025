@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
 import { marqueeImages } from "./Marquee";
+import profilePhoto from "@/assets/profile-photo.png";
 
 interface Trail {
   id: number;
@@ -53,15 +54,15 @@ export default function PartnerSection() {
         ))}
         <div className="relative text-center">
           <h2 className="font-mondwest text-[48px] md:text-[64px] lg:text-[80px] text-[#0D212C] mb-12">
-            Partner with us
+            Work with me
           </h2>
-          <Button variant="primary" className="!pl-2">
+          <Button variant="primary" href="mailto:prateekmaurya862@gmail.com" className="!pl-2">
             <img
-              src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200"
-              alt="Viktor"
-              className="w-10 h-10 rounded-full object-cover mr-3"
+              src={profilePhoto}
+              alt="Prateek"
+              className="w-10 h-10 rounded-full object-cover object-top mr-3"
             />
-            Start chat with Viktor
+            Start a chat with Prateek
           </Button>
         </div>
       </div>

@@ -1,48 +1,60 @@
 import Button from "./Button";
+import profilePhoto from "@/assets/profile-photo.png";
 
 export default function Hero() {
   return (
     <section className="max-w-[440px] mx-auto px-6 pt-12 md:pt-16 text-left">
-      <h2
-        className="font-mondwest text-[32px] md:text-[40px] lg:text-[44px] font-semibold tracking-tight mb-4 text-[#051A24] opacity-0 animate-fade-in-up"
+      <div
+        className="flex items-center gap-3 mb-4 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.1s" }}
       >
-        Viktor Oddy
-      </h2>
+        <img
+          src={profilePhoto}
+          alt="Prateek Maurya"
+          className="w-12 h-12 rounded-full object-cover object-top"
+        />
+        <h2 className="font-mondwest text-[32px] md:text-[40px] lg:text-[44px] font-semibold tracking-tight text-[#051A24]">
+          Prateek Maurya
+        </h2>
+      </div>
       <p
         className="font-mono text-xs md:text-sm text-[#051A24] mb-2 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.2s" }}
       >
-        The creative studio of Viktor Oddy
+        Web Developer & Video Editor
       </p>
       <h1
         className="text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] tracking-tight text-[#0D212C] whitespace-nowrap opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.3s" }}
       >
-        Build the <span className="font-mondwest">next wave,</span>
+        Web & Video <span className="font-mondwest">solutions</span>
         <br />
-        the <span className="font-mondwest">bold way.</span>
+        that <span className="font-mondwest">stand out.</span>
       </h1>
       <div
         className="flex flex-col gap-6 text-sm md:text-base text-[#051A24] leading-relaxed mt-5 md:mt-6 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.4s" }}
       >
         <p>
-          I spent seven years at Apple crafting products used by over a billion people. I founded
-          Vortex Studio to bring that same level of thinking to innovators shaping what comes next.
+          I'm Prateek Maurya — a freelance Web Developer and Video Editor helping creators,
+          startups, and businesses turn ideas into clean, high-impact digital experiences.
         </p>
         <p>
-          The studio is deliberately small. I guide the creative vision on every project, backed by
-          a veteran design crew that moves fast without cutting corners.
+          I work solo, end to end. From concept and design to a launched website or a finished cut,
+          I keep things sharp, fast, and made to convert.
         </p>
-        <p>Projects start at $5,000 per month.</p>
+        <p>Projects start at ₹15,000.</p>
       </div>
       <div
         className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-5 md:mt-6 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.5s" }}
       >
-        <Button variant="primary">Start a chat</Button>
-        <Button variant="secondary">View projects</Button>
+        <Button variant="primary" href="mailto:prateekmaurya862@gmail.com">
+          Start a chat
+        </Button>
+        <Button variant="secondary" href="#projects">
+          View projects
+        </Button>
       </div>
     </section>
   );

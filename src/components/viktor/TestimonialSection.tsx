@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import profilePhoto from "@/assets/profile-photo.png";
 
 export default function TestimonialSection() {
   const imgWrapRef = useRef<HTMLDivElement | null>(null);
@@ -43,27 +44,30 @@ export default function TestimonialSection() {
         className="text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] tracking-tight text-[#0D212C] mt-4 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.2s" }}
       >
-        I left <span className="font-mondwest">Apple</span> to build the studio I always wanted to
-        work with
+        I build <span className="font-mondwest">websites</span> and edit{" "}
+        <span className="font-mondwest">videos</span> that actually move the needle.
       </p>
       <p
         className="italic text-sm text-[#273C46] mt-4 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.3s" }}
       >
-        Viktor Oddy
+        Prateek Maurya
       </p>
       <div
         className="flex items-center gap-8 mt-6 opacity-0 animate-fade-in-up"
         style={{ animationDelay: "0.4s" }}
       >
-        <span style={{ width: 80, fontSize: 24 }} className="font-medium text-slate-900">
-          Apple
+        <span style={{ fontSize: 24 }} className="font-medium text-slate-900">
+          React
         </span>
-        <span style={{ width: 83, fontSize: 24 }} className="font-medium text-slate-900">
-          IDEO
+        <span style={{ fontSize: 24 }} className="font-medium text-slate-900">
+          Next.js
         </span>
-        <span style={{ width: 110, fontSize: 24 }} className="font-medium text-slate-900">
-          Polygon
+        <span style={{ fontSize: 24 }} className="font-medium text-slate-900">
+          Premiere
+        </span>
+        <span style={{ fontSize: 24 }} className="font-medium text-slate-900">
+          AE
         </span>
       </div>
       <div
@@ -72,9 +76,9 @@ export default function TestimonialSection() {
         style={{ animationDelay: "0.5s" }}
       >
         <img
-          src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260330_103804_7aa5494f-4d5b-432e-9dc7-20715275f143.png&w=1280&q=85"
-          alt="Chris Halaska"
-          className="w-full max-w-xs rounded-2xl shadow-lg"
+          src={profilePhoto}
+          alt="Prateek Maurya"
+          className="w-full max-w-xs rounded-2xl shadow-lg object-cover"
           style={{ transform: `translateY(${offset}px)` }}
         />
       </div>
