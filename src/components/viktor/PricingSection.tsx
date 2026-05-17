@@ -1,0 +1,51 @@
+import Button from "./Button";
+
+export default function PricingSection() {
+  return (
+    <section className="w-full py-12 px-6">
+      <div className="md:max-w-4xl md:ml-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          className="rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 bg-[#051A24] text-[#F6FCFF] shadow-[inset_0_2px_8px_0_rgba(255,255,255,0.08)] opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <h3 className="text-[22px] font-medium mt-8">Monthly Partnership</h3>
+          <p className="text-[#E0EBF0] mt-3 leading-relaxed">
+            A dedicated creative design team.
+            <br />
+            You work directly with Viktor.
+          </p>
+          <div className="mt-8">
+            <div className="text-2xl text-[#F6FCFF]">$5,000</div>
+            <div className="text-[#E0EBF0] text-sm mt-1">Monthly</div>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            <Button variant="primary" href="https://halaskastudio.com/./book">
+              Start a chat
+            </Button>
+            <Button variant="secondary" href="https://halaskastudio.com/./book">
+              How it works
+            </Button>
+          </div>
+        </div>
+        <div
+          className="rounded-[40px] pl-10 pr-10 md:pr-24 pt-3 pb-10 bg-white shadow-[0_4px_16px_rgba(0,0,0,0.08)] opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          <h3 className="text-[22px] font-medium mt-8 text-[#0D212C]">Custom Project</h3>
+          <p className="text-[#273C46] mt-3 leading-relaxed">
+            Fixed scope, fixed timeline.
+            <br />
+            Same team, same standards.
+          </p>
+          <div className="mt-8">
+            <div className="text-2xl text-[#0D212C]">$5,000</div>
+            <div className="text-[#273C46] text-sm mt-1">Minimum</div>
+          </div>
+          <div className="mt-8">
+            <Button variant="tertiary">Start a chat</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,27 +1,27 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Services from "@/components/sections/Services";
-import HowItWorks from "@/components/sections/HowItWorks";
-import Projects from "@/components/sections/Projects";
-import Pricing from "@/components/sections/Pricing";
-import CTA from "@/components/sections/CTA";
-import Footer from "@/components/sections/Footer";
+import Hero from "@/components/viktor/Hero";
+import Marquee from "@/components/viktor/Marquee";
+import TestimonialSection from "@/components/viktor/TestimonialSection";
+import PricingSection from "@/components/viktor/PricingSection";
+import TestimonialCarousel from "@/components/viktor/TestimonialCarousel";
+import ProjectsSection from "@/components/viktor/ProjectsSection";
+import PartnerSection from "@/components/viktor/PartnerSection";
+import Footer from "@/components/viktor/Footer";
+import CopyrightBar from "@/components/viktor/CopyrightBar";
+import BottomNav from "@/components/viktor/BottomNav";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <HowItWorks />
-        <Projects />
-        <Pricing />
-        <CTA />
-      </main>
+    <div className="min-h-screen bg-white text-[#051A24] font-neue overflow-x-hidden pb-28">
+      <Hero />
+      <Marquee />
+      <TestimonialSection />
+      <PricingSection />
+      <TestimonialCarousel />
+      <ProjectsSection />
+      <PartnerSection />
       <Footer />
+      <CopyrightBar />
+      <BottomNav />
     </div>
   );
 };
