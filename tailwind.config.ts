@@ -56,6 +56,13 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			portfolio: {
+  				bg: '#0A0A0A',
+  				surface: '#141414',
+  				text: '#F5F5F5',
+  				muted: '#878787',
+  				stroke: '#1F1F1F'
   			}
   		},
   		borderRadius: {
