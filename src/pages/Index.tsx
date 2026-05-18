@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode, ElementType } from "react";
+import { useEffect, useRef, useState, ReactNode } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 import projectShakti from "@/assets/project-shakti.png";
@@ -11,7 +11,6 @@ const FadeIn = ({
   duration = 0.7,
   x = 0,
   y = 30,
-  as: As = "div" as ElementType,
   className,
   style,
 }: {
@@ -20,24 +19,20 @@ const FadeIn = ({
   duration?: number;
   x?: number;
   y?: number;
-  as?: ElementType;
   className?: string;
   style?: React.CSSProperties;
-}) => {
-  const MotionComp = motion(As as any);
-  return (
-    <MotionComp
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "50px", amount: 0 }}
-      transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      className={className}
-      style={style}
-    >
-      {children}
-    </MotionComp>
-  );
-};
+}) => (
+  <motion.div
+    initial={{ opacity: 0, x, y }}
+    whileInView={{ opacity: 1, x: 0, y: 0 }}
+    viewport={{ once: true, margin: "50px", amount: 0 }}
+    transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    className={className}
+    style={style}
+  >
+    {children}
+  </motion.div>
+);
 
 // ============ Reusable: Magnet ============
 const Magnet = ({
