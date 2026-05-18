@@ -191,4 +191,8 @@
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
   }
+
+  .accent-gradient {
+    background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  }
 }
