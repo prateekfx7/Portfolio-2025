@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hls from "hls.js";
-import { ArrowUpRight, Twitter, Linkedin, Github, Instagram, Globe } from "lucide-react";
+import { ArrowUpRight, Linkedin, Github, Instagram, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import profilePhoto from "@/assets/profile-photo.png";
 import projectShakti from "@/assets/project-shakti.png";
