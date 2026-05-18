@@ -411,7 +411,7 @@ const ContactFooter = () => {
       ease: "none",
       repeat: -1,
     });
-    return () => tween.kill();
+    return () => { tween.kill(); };
   }, []);
 
   const marqueeText = Array(10).fill("BUILDING THE FUTURE • ").join("");
