@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hls from "hls.js";
 import { ArrowUpRight, Linkedin, Github, Instagram, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import PortfolioNav from "@/components/portfolio/PortfolioNav";
 import profilePhoto from "@/assets/profile-photo.png";
 import projectShakti from "@/assets/project-shakti.png";
 import projectReels from "@/assets/project-reels.png";
