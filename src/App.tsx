@@ -32,6 +32,9 @@ const AppContent = () => {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/chat" element={<ChatPage />} />
+          <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
