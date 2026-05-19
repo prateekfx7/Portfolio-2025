@@ -483,7 +483,7 @@ const Index = () => {
       <AnimatePresence>
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
-      <Navbar />
+      <PortfolioNav />
       <Hero />
       <Works />
       <About />
